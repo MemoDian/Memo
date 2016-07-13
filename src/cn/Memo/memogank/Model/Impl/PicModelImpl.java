@@ -14,17 +14,17 @@ import cn.Memo.memogank.Entity.PicList;
 import cn.Memo.memogank.Model.IPicModel;
 import cn.Memo.memogank.Util.Url;
 
-public class PicModelImpl implements IPicModel{
+public class PicModelImpl implements IPicModel {
 
 	@Override
-	public void loadPicList(int n,final CallBack callBack) {
-		String url=Url.PIC_URL+n+"/1";
-		StringRequest request= new StringRequest(url, new Listener<String>() {
+	public void loadPicList(int n, final CallBack callBack) {
+		String url = Url.PIC_URL + n + "/1";
+		StringRequest request = new StringRequest(url, new Listener<String>() {
 			@Override
 			public void onResponse(String response) {
-				Gson gson=new Gson();
-				Pic pic=gson.fromJson(response, Pic.class);
-				List<PicList> picLists=pic.getResults();
+				Gson gson = new Gson();
+				Pic pic = gson.fromJson(response, Pic.class);
+				List<PicList> picLists = pic.getResults();
 				callBack.onSuccess(picLists);
 			}
 		}, new ErrorListener() {

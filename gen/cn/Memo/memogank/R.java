@@ -24,7 +24,7 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int action_settings=0x7f08000d;
+        public static final int action_settings=0x7f08000e;
         public static final int btnLast=0x7f080008;
         public static final int btnNext=0x7f080009;
         public static final int ivPic=0x7f08000a;
@@ -35,8 +35,9 @@ public final class R {
         public static final int rbPic=0x7f080003;
         public static final int rbText=0x7f080002;
         public static final int rgButton=0x7f080001;
-        public static final int tvAuthor=0x7f08000b;
-        public static final int tvContent=0x7f08000c;
+        public static final int tvAuthor=0x7f08000c;
+        public static final int tvContent=0x7f08000d;
+        public static final int tvTime=0x7f08000b;
         public static final int vpFragment=0x7f080000;
     }
     public static final class layout {

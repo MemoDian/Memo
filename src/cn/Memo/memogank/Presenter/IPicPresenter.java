@@ -5,5 +5,5 @@ public interface IPicPresenter {
 	/**
 	 * Õº∆¨≈‰÷√
 	 */
-	void loadPic();
+	void loadPic(int n);
 }
