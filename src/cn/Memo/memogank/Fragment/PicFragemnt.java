@@ -22,7 +22,8 @@ public class PicFragemnt extends Fragment implements IPicView{
 	private ListView lvPic;
 	private PicAdapter picAdapter;
 	private IPicPresenter picPresenter;
-	private int n=10;
+	private List<PicList> picLists;
+	private int n=1;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -35,8 +36,6 @@ public class PicFragemnt extends Fragment implements IPicView{
 		setLvpicOnScroll();
 		return view;
 	}
-	
-	
 
 	private void setLvpicOnScroll() {
 		lvPic.setOnScrollListener(new OnScrollListener() {
@@ -44,8 +43,9 @@ public class PicFragemnt extends Fragment implements IPicView{
 			public void onScrollStateChanged(AbsListView view, int scrollState) {
 				if(scrollState==OnScrollListener.SCROLL_STATE_IDLE){
 					if(view.getLastVisiblePosition()==view.getCount()-1){
-						n+=10;
-						picPresenter.loadPic(n);
+						n+=1;
+						picPresenter.addPic(n);
+						picAdapter.notifyDataSetChanged();
 					}
 				}
 			}
@@ -56,8 +56,6 @@ public class PicFragemnt extends Fragment implements IPicView{
 		});		
 	}
 
-
-
 	private void setViews(View view) {
 		lvPic = (ListView) view.findViewById(R.id.lvPic);
 		picPresenter=new PicpresenterImpl(this);
@@ -65,7 +63,13 @@ public class PicFragemnt extends Fragment implements IPicView{
 
 	@Override
 	public void showPicList(List<PicList> list) {
-		picAdapter = new PicAdapter(list, getActivity());
+		picLists=list;
+		picAdapter = new PicAdapter(picLists,getActivity());
 		lvPic.setAdapter(picAdapter);
+	}
+
+	@Override
+	public void updatePicList(List<PicList> list) {
+		picLists=list;
 	}
 }

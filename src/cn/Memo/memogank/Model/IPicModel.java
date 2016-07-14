@@ -8,4 +8,11 @@ public interface IPicModel extends IModel {
 	 * @param callBack
 	 */
 	void loadPicList(int n, CallBack callBack);
+	
+	/**
+	 * иою╜╪сть
+	 * @param n
+	 * @param callBack
+	 */
+	void addPicList(int n,CallBack callBack);
 }
