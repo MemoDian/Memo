@@ -3,8 +3,47 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity" >
+    
+	<RelativeLayout
+	    android:id="@+id/linearLayout"
+	    android:layout_width="match_parent"
+	    android:layout_height="60dp"
+	    android:orientation="horizontal"
+	    android:background="#A2FFFF"
+	    >
+	    <ImageView 
+	        android:id="@+id/ivTitle"
+	        android:layout_width="40dp"
+	        android:layout_height="40dp"
+	        android:layout_margin="10dp"
+	        android:src="@drawable/title"
+	        />
 
+	    <TextView
+	        android:id="@+id/tvName"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_centerHorizontal="true"
+	        android:layout_centerVertical="true"
+	        android:gravity="center"
+	        android:textSize="40px"
+	        android:textColor="#ff0000"
+	        android:text="自制gank" />
+
+	    <Button
+	        android:id="@+id/button1"
+	        android:layout_width="40dp"
+	        android:layout_height="40dp"
+	        android:layout_margin="10dp"
+	        android:layout_alignParentRight="true"
+	        android:layout_alignParentTop="true"
+	        android:background="@drawable/fenxiang"
+	         />
+
+	</RelativeLayout>
+    
     <android.support.v4.view.ViewPager
+        android:layout_below="@+id/linearLayout"
         android:id="@+id/vpFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
