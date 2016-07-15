@@ -2,34 +2,28 @@ package cn.Memo.memogank.Adapter;
 
 import java.util.List;
 
-import cn.Memo.memogank.R;
-import cn.Memo.memogank.Entity.PicList;
-import cn.Memo.memogank.Presenter.ITupianPresenter;
-import cn.Memo.memogank.Presenter.Impl.TupianPresenterImpl;
-import cn.Memo.memogank.View.ITupianView;
+import com.bumptech.glide.Glide;
 
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import cn.Memo.memogank.R;
+import cn.Memo.memogank.Entity.PicList;
 
-public class PicAdapter extends BaseAdapter implements ITupianView{
+public class PicAdapter extends BaseAdapter{
 	private List<PicList> list;
 	private Context context;
 	private LayoutInflater inflater;
-	private ITupianPresenter TupianPresenterImpl;
-	private Bitmap bitmap;
 	
 	public PicAdapter(List<PicList> list, Context context) {
 		super();
 		this.list = list;
 		this.context = context;
 		this.inflater=LayoutInflater.from(context);
-		this.TupianPresenterImpl=new TupianPresenterImpl(this);
 	}
 
 	@Override
@@ -61,8 +55,7 @@ public class PicAdapter extends BaseAdapter implements ITupianView{
 		String time = list.get(position).getPublishedAt();
 		time = time.split("T")[0];
 		String url = list.get(position).getUrl();
-		TupianPresenterImpl.loadPic(url);
-		holder.ivPic.setImageBitmap(bitmap);
+		Glide.with(context).load(url).into(holder.ivPic);
 		holder.tvTime.setText(time);
 		return convertView;
 	}
@@ -71,9 +64,6 @@ public class PicAdapter extends BaseAdapter implements ITupianView{
 		ImageView ivPic;
 		TextView tvTime;
 	}
-
-	@Override
-	public void showPic(Bitmap bitmap) {
-		this.bitmap=bitmap;
-	}
+	
+	
 }

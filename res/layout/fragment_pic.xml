@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
@@ -7,9 +7,21 @@
     <ListView
         android:id="@+id/lvPic"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_above="@+id/tvXiala"
+        android:layout_height="match_parent" >
     </ListView>
     
-    
+    <TextView 
+        android:id="@+id/tvXiala"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="加载更多....."
+        android:textSize="40px"
+        android:gravity="center"
+        android:visibility="gone"
+        android:textColor="#ffffff"
+        android:background="#a9a9a9"
+        android:layout_alignParentBottom="true"
+        />
 
-</LinearLayout>
+</RelativeLayout>
