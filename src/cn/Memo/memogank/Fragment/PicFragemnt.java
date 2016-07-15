@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +15,7 @@ import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ListView;
+import android.widget.GridView;
 import android.widget.TextView;
 import cn.Memo.memogank.R;
 import cn.Memo.memogank.Activity.OnePicActivity;
@@ -27,7 +26,7 @@ import cn.Memo.memogank.Presenter.Impl.PicpresenterImpl;
 import cn.Memo.memogank.View.IPicView;
 
 public class PicFragemnt extends Fragment implements IPicView {
-	private ListView lvPic;
+	private GridView GvPic;
 	private PicAdapter picAdapter;
 	private IPicPresenter picPresenter;
 	private List<PicList> picLists;
@@ -59,7 +58,7 @@ public class PicFragemnt extends Fragment implements IPicView {
 
 	private void setLvpicOnScroll() {
 		//滚动加载监听
-		lvPic.setOnScrollListener(new OnScrollListener() {
+		GvPic.setOnScrollListener(new OnScrollListener() {
 			@Override
 			public void onScrollStateChanged(AbsListView view, int scrollState) {
 
@@ -88,7 +87,7 @@ public class PicFragemnt extends Fragment implements IPicView {
 			}
 		});
 		//点击放大监听
-		lvPic.setOnItemClickListener(new OnItemClickListener() {
+		GvPic.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position,
@@ -102,7 +101,7 @@ public class PicFragemnt extends Fragment implements IPicView {
 	}
 	
 	private void setViews(View view) {
-		lvPic = (ListView) view.findViewById(R.id.lvPic);
+		GvPic = (GridView) view.findViewById(R.id.gvPic);
 		tvXiala = (TextView) view.findViewById(R.id.tvXiala);
 		picPresenter = new PicpresenterImpl(this);
 	}
@@ -111,7 +110,7 @@ public class PicFragemnt extends Fragment implements IPicView {
 	public void showPicList(List<PicList> list) {
 		picLists = list;
 		picAdapter = new PicAdapter(picLists, getActivity());
-		lvPic.setAdapter(picAdapter);
+		GvPic.setAdapter(picAdapter);
 	}
 
 	@Override

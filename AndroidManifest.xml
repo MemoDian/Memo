@@ -28,8 +28,13 @@
         </activity>
         <activity
             android:name="cn.Memo.memogank.Activity.OnePicActivity"
-             android:theme="@android:style/Theme.Holo.Light.NoActionBar" 
-            android:label="@string/title_activity_one_pic" >
+            android:label="@string/title_activity_one_pic"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
+        </activity>
+        <activity
+            android:name="cn.Memo.memogank.Activity.WebpageActivity"
+            android:label="@string/title_activity_webpage" 
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar">
         </activity>
     </application>
 

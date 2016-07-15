@@ -4,12 +4,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <ListView
-        android:id="@+id/lvPic"
+    <GridView
+        android:id="@+id/gvPic"
+        android:numColumns="2"
         android:layout_width="match_parent"
         android:layout_above="@+id/tvXiala"
         android:layout_height="match_parent" >
-    </ListView>
+    </GridView>
     
     <TextView 
         android:id="@+id/tvXiala"
