@@ -26,6 +26,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="cn.Memo.memogank.Activity.OnePicActivity"
+             android:theme="@android:style/Theme.Holo.Light.NoActionBar" 
+            android:label="@string/title_activity_one_pic" >
+        </activity>
     </application>
 
 </manifest>

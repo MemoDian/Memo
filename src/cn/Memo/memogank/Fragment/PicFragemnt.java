@@ -1,11 +1,14 @@
 package cn.Memo.memogank.Fragment;
 
+import java.io.Serializable;
 import java.util.List;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +19,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
 import cn.Memo.memogank.R;
+import cn.Memo.memogank.Activity.OnePicActivity;
 import cn.Memo.memogank.Adapter.PicAdapter;
 import cn.Memo.memogank.Entity.PicList;
 import cn.Memo.memogank.Presenter.IPicPresenter;
@@ -81,6 +85,18 @@ public class PicFragemnt extends Fragment implements IPicView {
 			@Override
 			public void onScroll(AbsListView view, int firstVisibleItem,
 					int visibleItemCount, int totalItemCount) {
+			}
+		});
+		//µã»÷·Å´ó¼àÌý
+		lvPic.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position,
+					long id) {
+				Intent intent = new Intent(getActivity(),OnePicActivity.class);
+				intent.putExtra("picLists", (Serializable)picLists);
+				intent.putExtra("position", position);
+				startActivity(intent);
 			}
 		});
 	}

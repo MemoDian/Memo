@@ -1,6 +1,8 @@
 package cn.Memo.memogank.Entity;
 
-public class PicList {
+import java.io.Serializable;
+
+public class PicList implements Serializable{
 	private String _id;
 	private String createdAt;
 	private String desc;
